@@ -19,6 +19,10 @@ showProperties(o)
 // d: object
 ```
 
+NOTES:
+
+- To implement this function you must use the for-in loop and indexed access properties
+  
 ---
 
 ### 1.2 `function executeFunctions(funcArray)`
