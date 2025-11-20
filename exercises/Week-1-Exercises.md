@@ -144,7 +144,7 @@ Exemplo:
     // sum: 10
 ```
 
-## 2. Modularity and Testing
+<!---## 2. Modularity and Testing
 
 ### 2.1 ECMAScript Module
 
@@ -174,3 +174,4 @@ Output:
 Mon Sep 15 2025 10:42:30 GMT+0000 (Coordinated Universal Time) - Hello, world!
 ```
 
+-->
