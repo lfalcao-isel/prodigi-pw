@@ -1,0 +1,22 @@
+IO - Input/Output. E.g.:
+- Ler escrever num fecheiro
+- Ler escrever na rede, e.g. HTTP 
+- etc
+
+fazer IO em JS => funções Assincronas.
+
+Modelo Simcrono:
+Função Normal - function foo() {...} - 
+  Chamo: const value = foo()
+  Resultado da função foo = Valor retornado
+
+Modelo Assimcrono:
+Função Assincorna - async function bar() {...} - 
+  Chamo: const valuePromise = bar()
+         console.log(valuePromise) // o value NAO é o resultado > Promise
+         .... // do other stuff..
+         const result = await valuePromise
+
+         <=> const result = await bar()
+
+  Resultado da função bar != Valor retornado - Promise
