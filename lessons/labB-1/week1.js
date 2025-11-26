@@ -24,6 +24,8 @@ function testShowProperties() {
  * @param {Array} funcArray an array of functions
  */
 function executeFunctions(funcArray) {
+  funcArray[0]()
+  funcArray[1]()
 }
 
 function testExecuteFunctions() {
@@ -40,7 +42,7 @@ function testExecuteFunctions() {
   // Bye
 }
 
-testShowProperties();
+// testShowProperties();
 testExecuteFunctions();
 
 function playWithProperties() {
