@@ -39,8 +39,8 @@ function getLists(req, resp){
 }
 
 function getListById(req, resp){
-     const id = parseInt() //5
-     const list = lists.find(l => l.id === id)
+     const id =  //5
+     const list = lists.find(l => l.id == id)
      if (list) {
         //6
     } else {
