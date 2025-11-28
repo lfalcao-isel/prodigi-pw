@@ -1,3 +1,6 @@
+//1 - npm install
+//2 - node demo-express.mjs
+
 import express from 'express';
 
 const app = express();
