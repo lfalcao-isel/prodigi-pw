@@ -28,7 +28,7 @@ well-defined responsibility.
 Implement a function named **`readAndFilter()`** that performs the
 following:
 
-1.  Reads the file [liga.json](https://github.com/CCISEL/prodigi-pw-private/blob/main/exercises/liga.json) using `fs.promises.readFile`.
+1.  Reads the file [liga.json](liga.json) using `fs.promises.readFile`.
 2.  Parses the file contents from JSON into a JavaScript object or
     array.
 3.  Filters the teams and returns only those whose number of goals
