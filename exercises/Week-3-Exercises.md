@@ -68,7 +68,7 @@ The application must support three routes:
 ## **3. Full Implementation (`app.js`)**
 
 ``` javascript
-iimport express from 'express';
+import express from 'express';
 
 const app = express();
 const PORT = 3000;
