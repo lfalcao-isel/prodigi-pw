@@ -30,7 +30,7 @@ following:
 
 1.  Reads the file [liga.json](liga.json) using `fs.promises.readFile`.
 2.  Parses the file contents from JSON into a JavaScript object or
-    array.
+    array, using `JSON.parse` function.
 3.  Filters the teams and returns only those whose number of goals
     scored (**`goals`**) is **greater than 10**.
 4.  Returns the filtered array.
