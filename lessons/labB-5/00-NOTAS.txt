@@ -1,0 +1,28 @@
+JavaScript
+- Linguagem de programação no Browser (nao usado neste modulo)
+- Linguagem de programação do Servidor HTTP/Web e.g. Node
+
+
+Framework:         Express
+Servidor HTTP:     Modulo standard Node http
+Runtime:           Node - JavaScript
+Sistema operativo: Windows/ Linux / Mac
+
+Browser: JavaScript, HTML, CSS
+
+View Engine: Handlebars
+
+Express -> Views (handlebars) -> HTML (browser)
+
+
+Porque não: Express -> HTML ??? 
+Resposta: Não queremos HTML estático. Objectivo: Dinamismo
+
+---------
+
+Browser -> HTTP request -> Express -> Views (handlebars) -> HTML (browser)
+
+        -> query-string      ->  ????
+    x   -> path parameters   ->  req.params.id  -> res.render(...., product) -> Handlebars usar product
+           e.g. /products/2
+        -> Form              -> 
