@@ -151,7 +151,16 @@ The skeleton code has several incomplete implementations that you need to fix:
 - Currently uses hardcoded `id = 1` instead of reading from route parameter
 - Fix: Use `req.params.id` to get the list ID from the URL
 
-### Task 3: Implement `getFavorites` Function
+### Task 3: Implement `getAllLists` in Data Layer
+
+- The `getAllLists` function in `shopping-list-data.js` currently throws an error
+- Implementation should:
+  - Return the lists array for the given userId
+  - Return empty array if userId not found
+  - Use `Promise.resolve()` to return the result
+
+
+### Task 4: Implement `getFavorites` Function
 
 - In `shopping-list-web-app.js`, create the `getFavorites(lists, maxFavorites)` function
 - Currently throws "Not implemented" error
@@ -160,20 +169,12 @@ The skeleton code has several incomplete implementations that you need to fix:
   - Return only the first `maxFavorites` lists
   - Use `.sort()` and `.slice()` methods
 
-### Task 4: Fix `handleGetLists` to Pass Favorites
+### Task 5: Fix `handleGetLists` to Pass Favorites
 
 - The `handleGetLists` function needs to pass a `favorites` property to the view
 - Currently calculates `fav` but doesn't pass it to the template
 - Call `getFavorites(lists, 2)` to get top 2 lists with most items (already done)
 - Fix: Pass `favorites: fav` property to the `lists.hbs` template along with `lists` and `user`
-
-### Task 5: Implement `getAllLists` in Data Layer
-
-- The `getAllLists` function in `shopping-list-data.js` currently throws an error
-- Implementation should:
-  - Return the lists array for the given userId
-  - Return empty array if userId not found
-  - Use `Promise.resolve()` to return the result
 
 ## Verification Checklist
 
