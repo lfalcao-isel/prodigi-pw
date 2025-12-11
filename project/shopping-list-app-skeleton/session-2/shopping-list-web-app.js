@@ -14,10 +14,12 @@ async function handleGetHome(req, res) {
 // GET /lists
 async function handleGetLists(req, res) {
     try {
-        const lists = await shoppingListServices.getAllLists(req.user.id);
-        const fav = getFavorites(lists, 2)
+        //const lists = await shoppingListServices.getAllLists(req.user.id);
+        //const fav = getFavorites(lists, 2)
         // TODO: Pass fav array as favorites property to the 'lists' view
-        res.render('lists', { lists: lists, user: req.user });
+        res.render('lists'
+            //{ lists: lists, user: req.user }
+             );
     } catch (err) {
         res.status(500).render('error', { message: 'Error loading lists', status: 500 });
     }
@@ -59,7 +61,7 @@ function getFavorites(lists, maxFavorites) {
     // Should sort lists by number of items (descending)
     // Return only the first maxFavorites lists
     // Hint: Use .sort() and .slice()
-    throw new Error('getFavorites not implemented');
+    //throw new Error('getFavorites not implemented');
 }
 
 export {
