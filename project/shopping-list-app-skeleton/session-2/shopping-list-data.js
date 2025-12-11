@@ -2,7 +2,7 @@
 
 // In-memory data store - organized by userId
 const userLists = {
-    1: [  // alice's lists
+    1: [
         {
             id: 1,
             name: 'Grocery Shopping',
@@ -11,9 +11,28 @@ const userLists = {
                 { id: 2, name: 'Bread', quantity: 1, bought: true },
                 { id: 3, name: 'Eggs', quantity: 12, bought: false }
             ]
+        },
+        {
+            id: 2,
+            name: 'Weekly Meal Prep',
+            items: [
+                { id: 1, name: 'Chicken Breast', quantity: 2, bought: true },
+                { id: 2, name: 'Rice', quantity: 1, bought: false },
+                { id: 3, name: 'Vegetables', quantity: 3, bought: false },
+                { id: 4, name: 'Olive Oil', quantity: 1, bought: true }
+            ]
+        },
+        {
+            id: 3,
+            name: 'Office Supplies',
+            items: [
+                { id: 1, name: 'Printer Paper', quantity: 5, bought: false },
+                { id: 2, name: 'Pens', quantity: 10, bought: true },
+                { id: 3, name: 'Notepads', quantity: 2, bought: false }
+            ]
         }
     ],
-    2: [  // bob's lists
+    2: [
         {
             id: 1,
             name: 'Hardware Store',
@@ -21,10 +40,30 @@ const userLists = {
                 { id: 1, name: 'Hammer', quantity: 1, bought: false },
                 { id: 2, name: 'Nails', quantity: 100, bought: true }
             ]
+        },
+        {
+            id: 2,
+            name: 'Home Improvement',
+            items: [
+                { id: 1, name: 'Paint', quantity: 2, bought: false },
+                { id: 2, name: 'Brushes', quantity: 3, bought: true },
+                { id: 3, name: 'Screws', quantity: 50, bought: false }
+            ]
+        },
+        {
+            id: 3,
+            name: 'Garden Tools',
+            items: [
+                { id: 1, name: 'Shovel', quantity: 1, bought: true },
+                { id: 2, name: 'Rake', quantity: 1, bought: false },
+                { id: 3, name: 'Gloves', quantity: 2, bought: true },
+                { id: 4, name: 'Seeds', quantity: 4, bought: false }
+            ]
         }
     ],
-    3: [] // charlie's lists (empty)
+    3: []
 };
+
 
 // Get all lists for a user
 async function getAllLists(userId) {
