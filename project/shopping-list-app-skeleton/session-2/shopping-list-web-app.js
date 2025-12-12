@@ -58,10 +58,10 @@ async function handleGetAddItem(req, res) {
 // Helper function to get favorite lists
 function getFavorites(lists, maxFavorites) {
     // TODO: Implement this function
-    // Should sort lists by number of items (descending)
+    //Should sort lists by number of items (descending)
     // Return only the first maxFavorites lists
     // Hint: Use .sort() and .slice()
-    //throw new Error('getFavorites not implemented');
+    throw new Error('getFavorites not implemented');
 }
 
 export {
@@ -69,5 +69,6 @@ export {
     handleGetLists,
     handleGetList,
     handleGetCreateList,
-    handleGetAddItem
+    handleGetAddItem,
+    getFavorites
 };
