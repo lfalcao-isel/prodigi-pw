@@ -1,63 +1,63 @@
-# 1. Modularity - ECMAScript Modules
+# 1. Modularidade - Módulos ECMAScript
 
-Create a small program that shows how to reuse functions in modules.
+Criar um pequeno programa que demonstra como reutilizar funções em módulos.
 
-### Create a module (`functions.js`)
+### Criar um módulo (`functions.js`)
 
-   * Include the two functions from Exercises 1.6 and 1.7 from the previous week.
-   * Export them so they can be reused.
+   * Incluir as duas funções dos Exercícios 1.6 e 1.7 da semana anterior.
+   * Exportá-las para que possam ser reutilizadas.
 
-### Create a main module (`main.js`)
+### Criar um módulo principal (`main.js`)
 
-   * Import the functions module.
-   * Define a `main` function that calls the imported functions and logs the results.
-   * Call `main()` at the end to run the program.
+   * Importar o módulo de funções.
+   * Definir uma função `main` que chama as funções importadas e regista os resultados.
+   * Chamar `main()` no final para executar o programa.
 
 
-# 2. Asynchronous Programming – Promises
+# 2. Programação Assíncrona – Promises
 
-## 2.1 File System with Promises (Node.js)
+## 2.1 Sistema de Ficheiros com Promises (Node.js)
 
-Using the Node.js **Promises API** for file access, complete the tasks
-described below.\
-You must implement **two separate functions**, each with a clear and
-well-defined responsibility.
+Usando a **API de Promises** do Node.js para acesso a ficheiros, completar as tarefas
+descritas abaixo.\
+Deve implementar **duas funções separadas**, cada uma com uma responsabilidade clara e
+bem definida.
 
-### Function 1 - `readAndFilter()`
+### Função 1 - `readAndFilter()`
 
-Implement a function named **`readAndFilter()`** that performs the
-following:
+Implementar uma função chamada **`readAndFilter()`** que realiza o
+seguinte:
 
-1.  Reads the file [liga.json](liga.json) using `fs.promises.readFile`.
-2.  Parses the file contents from JSON into a JavaScript object or
-    array, using `JSON.parse` function.
-3.  Filters the teams and returns only those whose number of goals
-    scored (**`goals`**) is **greater than 10**.
-4.  Returns the filtered array.
+1.  Lê o ficheiro [liga.json](liga.json) usando `fs.promises.readFile`.
+2.  Analisa o conteúdo do ficheiro de JSON para um objeto ou array
+    JavaScript, usando a função `JSON.parse`.
+3.  Filtra as equipas e retorna apenas aquelas cujo número de golos
+    marcados (**`goals`**) é **superior a 10**.
+4.  Retorna o array filtrado.
 
-### Function 2  - `saveResult(filteredTeams)`
+### Função 2  - `saveResult(filteredTeams)`
 
-Implement a function named **`saveResult()`** that:
+Implementar uma função chamada **`saveResult()`** que:
 
-1.  Receives the filtered array returned by `readAndFilter()`.
-2.  Converts this array into formatted JSON using `JSON.stringify(filteredTeams)`.
-3.  Writes the result into a new file named **`liga10goals.json`** using
+1.  Recebe o array filtrado retornado por `readAndFilter()`.
+2.  Converte este array em JSON formatado usando `JSON.stringify(filteredTeams)`.
+3.  Escreve o resultado num novo ficheiro chamado **`liga10goals.json`** usando
     `fs.promises.writeFile`.
 
-### Final Objective
+### Objetivo Final
 
-Create a small **`main()`** function (or similar driver code) that:
+Criar uma pequena função **`main()`** (ou código de controlo similar) que:
 
-1.  Calls `readAndFilter()` to obtain the filtered teams.
-2.  Passes the result to `saveResult()`.
+1.  Chama `readAndFilter()` para obter as equipas filtradas.
+2.  Passa o resultado para `saveResult()`.
 
-When executed, your program should produce the file:
+Quando executado, o programa deve produzir o ficheiro:
 
     liga10goals.json
 
-containing only the teams that scored more than 10 goals.
+contendo apenas as equipas que marcaram mais de 10 golos.
 
-### Example Output (inside liga10goals.json)
+### Exemplo de Resultado (dentro de liga10goals.json)
 
 ```json
 [
@@ -79,65 +79,64 @@ containing only the teams that scored more than 10 goals.
 ]
 ```
 
-## Exercise 2.2 - Fetch API (Node.js)
+## Exercício 2.2 - Fetch API (Node.js)
 
-Using the **Fetch API**, write a program that retrieves information
-about animated movies from the web API and saves the titles of all
-movies into a local JSON file.
+Usando a **Fetch API**, escrever um programa que obtém informação
+sobre filmes de animação da API web e guarda os títulos de todos
+os filmes num ficheiro JSON local.
 
-You must implement **two separate functions**, each with a clear and
-well-defined responsibility.
+Deve implementar **duas funções separadas**, cada uma com uma responsabilidade clara e
+bem definida.
 
-### Function 1 - `fetchMovies()`
+### Função 1 - `fetchMovies()`
 
-Implement a function named **`fetchMovies()`** that performs the
-following:
+Implementar uma função chamada **`fetchMovies()`** que realiza o
+seguinte:
 
-1.  Makes an HTTP GET request to:
+1.  Faz um pedido HTTP GET para:
 
 ```{=html}
 https://api.sampleapis.com/movies/animation
 ```
     
-2.  Uses the **Fetch API** to retrieve the data.
-3.  Parses the response as JSON using `response.json()`.
-4.  Extracts only the **titles** of the movies from the returned
-    objects.
-5.  Returns an array of movie titles.
+2.  Usa a **Fetch API** para obter os dados.
+3.  Analisa a resposta como JSON usando `response.json()`.
+4.  Extrai apenas os **títulos** dos filmes dos objetos retornados.
+5.  Retorna um array de títulos de filmes.
 
-### Function 2 - `saveTitles(titles)`
+### Função 2 - `saveTitles(titles)`
 
-Implement a function named **`saveTitles()`** that:
+Implementar uma função chamada **`saveTitles()`** que:
 
-1.  Receives the array of movie titles returned by `fetchMovies()`.
-2.  Converts the array into formatted JSON using:
+1.  Recebe o array de títulos de filmes retornado por `fetchMovies()`.
+2.  Converte o array em JSON formatado usando:
 
 ```{=html}
 JSON.stringify(titles, null, 2)
 ```
    
-3.  Saves this JSON into a file named:
+3.  Guarda este JSON num ficheiro chamado:
 
 ```{=html}
 animationTitles.json
 ```
 
-using `fs.promises.writeFile`.
+usando `fs.promises.writeFile`.
 
-### Final Objective
+### Objetivo Final
 
-Write a small `main()` function (or similar) that:
+Escrever uma pequena função `main()` (ou similar) que:
 
-1.  Calls `fetchMovies()` to get the titles.
-2.  Passes the result to `saveTitles()`.
+1.  Chama `fetchMovies()` para obter os títulos.
+2.  Passa o resultado para `saveTitles()`.
 
-When executed, your program must create the file:
+Quando executado, o programa deve criar o ficheiro:
 
     animationTitles.json
 
-containing all movie titles retrieved from the API.
+contendo todos os títulos de filmes obtidos da API.
 
-### Example Output (inside animationTitles.json)
+### Exemplo de Resultado (dentro de animationTitles.json)
 
 ``` json
 [
@@ -148,25 +147,25 @@ containing all movie titles retrieved from the API.
 ]
 ```
 
-The actual titles will depend on the API response.
+Os títulos reais dependerão da resposta da API.
 
 
-# 3. Web API with Express
+# 3. Web API com Express
 
-## Shopping Lists API
+## API de Listas de Compras
 
-Build a small **Express (Node.js)** Web API that serves shopping lists stored in a pre-populated in-memory array.
+Construir uma pequena **Web API em Express (Node.js)** que serve listas de compras armazenadas num array pré-preenchido em memória.
 
-Each shopping list contains:
+Cada lista de compras contém:
 
-* **id**: a unique identifier (number)
-* **name**: the name of the list (string)
-* **items**: an array of products, where each product has:
+* **id**: um identificador único (número)
+* **name**: o nome da lista (string)
+* **items**: um array de produtos, onde cada produto tem:
 
-  * **product**: the name of the product (string)
-  * **quantity**: the amount of the product (number)
+  * **product**: o nome do produto (string)
+  * **quantity**: a quantidade do produto (número)
 
-Example structure of a shopping list:
+Exemplo de estrutura de uma lista de compras:
 
 ```json
 {
@@ -179,44 +178,44 @@ Example structure of a shopping list:
 }
 ```
 
-## API Endpoints
+## Endpoints da API
 
 * `GET /lists`
 
-  * Returns all shopping lists as JSON.
-  * Supports an optional query parameter `limit` to restrict the number of lists returned.
+  * Retorna todas as listas de compras como JSON.
+  * Suporta um parâmetro de consulta opcional `limit` para restringir o número de listas retornadas.
 
 * `GET /lists/:id`
 
-  * Returns the shopping list with the specified `id` as JSON.
+  * Retorna a lista de compras com o `id` especificado como JSON.
 
-## Constraints
+## Restrições
 
-* JSON responses only
-* Server runs on port **3000**
-* Data is in memory only and pre-filled at server startup
+* Respostas apenas em JSON
+* Servidor executa na porta **3000**
+* Dados apenas em memória e pré-preenchidos no arranque do servidor
 
-## Steps
+## Passos
 
-1. Initialize the Node.js project:
+1. Inicializar o projeto Node.js:
 
 ```bash
 npm init -y
 ```
 
-2. Install Express:
+2. Instalar Express:
 
 ```bash
 npm install express
 ```
 
-3. There is a **partial implementation file** (`shooping-web-api.mjs`) provided at the following link:
+3. Existe um **ficheiro de implementação parcial** (`shooping-web-api.mjs`) fornecido no seguinte link:
 
-[Partial implementation - shooping-web-api.mjs](https://github.com/lfalcao-isel/prodigi-pw/blob/main/exercises/shooping-web-pi.mjs)
+[Implementação parcial - shooping-web-api.mjs](https://github.com/lfalcao-isel/prodigi-pw/blob/main/exercises/shooping-web-pi.mjs)
 
-There is a simple express demo [here](https://github.com/lfalcao-isel/prodigi-pw/tree/main/exercises/demo-express)
+Existe uma demonstração simples do express [aqui](https://github.com/lfalcao-isel/prodigi-pw/tree/main/exercises/demo-express)
 
-Students **only need to complete the parts marked with numbered comments** in the file.
+Os alunos **apenas precisam de completar as partes marcadas com comentários numerados** no ficheiro.
 
-4. Test the endpoints using the browser
+4. Testar os endpoints usando o browser
 

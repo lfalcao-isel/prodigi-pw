@@ -1,23 +1,23 @@
-# **Web App with Express and Handlebars (Products Manager)**
+# **Aplicação Web com Express e Handlebars (Gestor de Produtos)**
 
-## **Overview**
+## **Visão Geral**
 
-Build a small **Express** web application using **Handlebars (hbs)** as
-the view engine.\
-The app manages a collection of **in-memory products** and supports:
+Construir uma pequena aplicação web em **Express** usando **Handlebars (hbs)** como
+motor de visualização.\
+A aplicação gere uma coleção de **produtos em memória** e suporta:
 
-1.  **List all products**
-2.  **View details of a single product**
-3.  **Create a new product**
+1.  **Listar todos os produtos**
+2.  **Ver detalhes de um único produto**
+3.  **Criar um novo produto**
 
-<!--- **Note**: You only need to follow the next steps and create the Handlebars templates
+<!--- **Nota**: Apenas precisa de seguir os próximos passos e criar os templates Handlebars
 
- The UI must use **Bootstrap** for styling.>--->
+ A UI deve usar **Bootstrap** para estilização.>--->
 ------------------------------------------------------------------------
 
-## **1. Project Setup**
+## **1. Configuração do Projeto**
 
-Install Node dependencies:
+Instalar dependências do Node:
 
 ``` bash
 npm init -y
@@ -26,15 +26,15 @@ npm install express hbs
 
 ------------------------------------------------------------------------
 
-## **2. Application Requirements**
+## **2. Requisitos da Aplicação**
 
-Each product contains:
+Cada produto contém:
 
--   `id`: number
+-   `id`: número
 -   `name`: string
--   `price`: number
+-   `price`: número
 
-Example:
+Exemplo:
 
 ``` json
 {
@@ -44,28 +44,28 @@ Example:
 }
 ```
 
-### Routes to Implement
+### Rotas a Implementar
 
-The application must support three routes:
+A aplicação deve suportar três rotas:
 
-1. **List all products**  
-   - **Route:** `GET /products`  
-   - **Description:** Renders an HTML page showing all products using a Handlebars template.
+1. **Listar todos os produtos**  
+   - **Rota:** `GET /products`  
+   - **Descrição:** Renderiza uma página HTML mostrando todos os produtos usando um template Handlebars.
 
-2. **Product details**  
-   - **Route:** `GET /products/:id`  
-   - **Description:** Displays the details of a single product in a dedicated view.
+2. **Detalhes do produto**  
+   - **Rota:** `GET /products/:id`  
+   - **Descrição:** Apresenta os detalhes de um único produto numa vista dedicada.
 
-3. **Create a new product**  
-   - **Routes:**  
-     - `GET /newproductview` — Renders an HTML page to create a new product 
-     - `POST /products` — processes the form submission and inserts the new product into memory  
-   - **Description:** New products are stored in memory only.
+3. **Criar um novo produto**  
+   - **Rotas:**  
+     - `GET /newproductview` — Renderiza uma página HTML para criar um novo produto 
+     - `POST /products` — processa o envio do formulário e insere o novo produto em memória  
+   - **Descrição:** Novos produtos são armazenados apenas em memória.
 
 
 ------------------------------------------------------------------------
 
-## **3. Full Implementation (`app.js`)**
+## **3. Implementação Completa (`app.js`)**
 
 ``` javascript
 import express from 'express';
@@ -73,38 +73,38 @@ import express from 'express';
 const app = express();
 const PORT = 3000;
 
-// Configure Handlebars
+// Configurar Handlebars
 
 app.set('view engine', 'hbs');
 
-// Middleware to parse POST form data
+// Middleware para processar dados de formulários POST
 app.use(express.urlencoded({ extended: true }));
 
-// In-memory products (pre-filled)
+// Produtos em memória (pré-preenchidos)
 const products = [
   { id: 1, name: 'Laptop', price: 899.99 },
   { id: 2, name: 'Mouse', price: 19.99 },
   { id: 3, name: 'Monitor', price: 149.99 }
 ];
 
-// ---------- ROUTES ----------
+// ---------- ROTAS ----------
 
-// 1. List all products
+// 1. Listar todos os produtos
 app.get('/products', getProducts)
 
-// 2. Product details
+// 2. Detalhes do produto
 app.get('/products/:id',getProductById) 
 
-// 3. Form for new product
+// 3. Formulário para novo produto
 app.get('/newproductview', newProductView)
 
-// 3b. Handle form submission
+// 3b. Processar envio do formulário
 app.post('/products', createProduct)
 
 
-// Start server
+// Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Servidor a executar em http://localhost:${PORT}`);
 });
 
 //Handlers
@@ -147,17 +147,17 @@ function createProduct(req, res) {
 
 ------------------------------------------------------------------------
 
-# **4. Views (`/views` folder)**
+# **4. Vistas (pasta `/views`)**
 
-Create the folder:
+Criar a pasta:
 
     /views
 
-The following **HTML examples** are provided as a reference. Students should **use these as a base to create their Handlebars (`.hbs`) templates**.
+Os seguintes **exemplos HTML** são fornecidos como referência. Os alunos devem **usá-los como base para criar os seus templates Handlebars (`.hbs`)**.
 
 ------------------------------------------------------------------------
 
-### **4.1 List Products (`products.hbs`)**
+### **4.1 Listar Produtos (`products.hbs`)**
 
 ```html
 <!DOCTYPE html>
@@ -208,69 +208,69 @@ The following **HTML examples** are provided as a reference. Students should **u
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Product Detail</title>
+  <title>Detalhes do Produto</title>
 </head>
 <body>
-  <h1>Product Detail</h1>
+  <h1>Detalhes do Produto</h1>
 
   <p><strong>ID:</strong> 1</p>
-  <p><strong>Name:</strong> Laptop</p>
-  <p><strong>Price:</strong> 899.99</p>
+  <p><strong>Nome:</strong> Laptop</p>
+  <p><strong>Preço:</strong> 899.99</p>
 
-  <a href="/products">Back to List</a>
+  <a href="/products">Voltar à Lista</a>
 </body>
 </html>
 ```
 
 
 
-### **4.3 New Product Form (new-product.hbs)**
+### **4.3 Formulário de Novo Produto (new-product.hbs)**
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Title</title>
+  <title>Título</title>
 </head>
 <body>
-  <h1>Add New Product</h1>
+  <h1>Adicionar Novo Produto</h1>
 
   <form action="/products" method="POST">
-    <p><label>Product Name:</label>
+    <p><label>Nome do Produto:</label>
     <input type="text" name="name" required></p>
 
-    <p><label>Price:</label>
+    <p><label>Preço:</label>
     <input type="number" name="price" step="0.01" required></p>
 
-    <button type="submit">Create Product</button>
+    <button type="submit">Criar Produto</button>
   </form>
 
-  <a href="/products">Back to List</a>
+  <a href="/products">Voltar à Lista</a>
 </body>
 </html>
 ```
 
-### 4.4 Error View `error-view.hbs` 
+### 4.4 Vista de Erro `error-view.hbs` 
 
-This view must render an HTML page that contains:
+Esta vista deve renderizar uma página HTML que contém:
 
-- An error message displayed inside a **paragraph**
-- A **link** that returns the user to `/products`
+- Uma mensagem de erro apresentada dentro de um **parágrafo**
+- Um **link** que devolve o utilizador a `/products`
 
-This view is used in the following cases:
+Esta vista é usada nos seguintes casos:
 
-- When a **product is not found**
-- When **invalid form data** is submitted**
+- Quando um **produto não é encontrado**
+- Quando **dados inválidos do formulário** são submetidos**
 
 ------------------------------------------------------------------------
 
-# **5. Running the Application**
+# **5. Executar a Aplicação**
 
-Start the server:
+Iniciar o servidor:
 
 ``` bash
 node app.js
 ```
 
-Open:
+Abrir:
 
     http://localhost:3000/products

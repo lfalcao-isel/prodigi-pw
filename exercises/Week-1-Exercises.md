@@ -1,13 +1,13 @@
-# JavaScript Exercises
+# Exercícios de JavaScript
 
-## 1. Working with Objects and Arrays, implement the following functions:
+## 1. Trabalhar com Objetos e Arrays, implementar as seguintes funções:
 
 ### 1.1 `function showProperties(obj)`
 
-Receives an object `obj`.
-Shows in the console the name and type of each property in the object.
+Recebe um objeto `obj`.
+Mostra na consola o nome e tipo de cada propriedade no objeto.
 
-**Example:**
+**Exemplo:**
 
 ```javascript
 const o = {a: 1, b: 'Thor', c: [1,2,3], d: {x: 10}}
@@ -19,25 +19,25 @@ showProperties(o)
 // d: object
 ```
 
-NOTES:
+NOTAS:
 
-- To implement this function you must use the for-in loop and indexed access properties
+- Para implementar esta função deve usar o ciclo for-in e acesso indexado a propriedades
   
 ---
 
 ### 1.2 `function executeFunctions(funcArray)`
 
-Receives an array `funcArray`.
-Executes all functions present in the array, assuming they do not receive parameters.
+Recebe um array `funcArray`.
+Executa todas as funções presentes no array, assumindo que não recebem parâmetros.
 
-**Example:**
+**Exemplo:**
 
 ```javascript
 function sayHi() { console.log('Hi') }
 function sayBye() { console.log('Bye') }
 
 executeFunctions([sayHi, "Opps", ,sayBye])
-// Output:
+// Resultado:
 // Hi
 // Bye
 ```
@@ -46,10 +46,10 @@ executeFunctions([sayHi, "Opps", ,sayBye])
 
 ### 1.3 `function filterProduct(products, minPrice)`
 
-Receives an array `products` (objects with at least a `price` property) and a number `minPrice`.
-Returns a new array containing only the products whose price is greater than `minPrice`.
+Recebe um array `products` (objetos com pelo menos uma propriedade `price`) e um número `minPrice`.
+Retorna um novo array contendo apenas os produtos cujo preço é superior a `minPrice`.
 
-**Example:**
+**Exemplo:**
 
 ```javascript
 const products = [
@@ -69,10 +69,10 @@ const expensive = filterProduct(products, 4)
 
 ### 1.4 `function mapProduct(products)`
 
-Receives an array `products`.
-Returns a new array containing only the names of the products.
+Recebe um array `products`.
+Retorna um novo array contendo apenas os nomes dos produtos.
 
-**Example:**
+**Exemplo:**
 
 ```javascript
 const products = [
@@ -89,10 +89,10 @@ const names = mapProduct(products)
 
 ### 1.5 `function reduceProduct(products)`
 
-Receives an array `products`.
-Returns the total sum of the prices of all products.
+Recebe um array `products`.
+Retorna a soma total dos preços de todos os produtos.
 
-**Example:**
+**Exemplo:**
 
 ``` javascript
 const products = [
