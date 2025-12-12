@@ -75,6 +75,12 @@ async function handleCreateList(req, res) {
     }
 }
 
+// POST /logout
+async function handleLogout(req, res) {
+    res.setHeader('WWW-Authenticate', 'Basic realm="Shopping List"');
+    res.status(401).send('Logged out. Refresh the page to login again.');
+}
+
 
 export {
     handleGetHome,
@@ -83,5 +89,6 @@ export {
     handleGetCreateList,
     handleGetAddItem,
     getFavorites,
-    handleCreateList
+    handleCreateList,
+    handleLogout
 };

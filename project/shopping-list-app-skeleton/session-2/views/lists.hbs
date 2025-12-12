@@ -9,18 +9,22 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Shopping List</a>
+            <a class="navbar-brand" href="/">Shopping List</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="lists.html">My Lists</a>
+                        <a class="nav-link active" href="/lists">My Lists</a>
                     </li>
+                    <li class="nav-item">
+                        <form method="post" action="/logout" style="display:inline-block">
+                            <button class="nav-link btn btn-outline-light btn-sm ms-2" style="border:none">Logout</button>
+                        </form>
                 </ul>
             </div>
         </div>
@@ -80,7 +84,7 @@
                                     <td>Grocery Shopping</td>
                                     <td><span class="badge bg-info">5</span></td>
                                     <td>
-                                        <a href="list-detail.html" class="btn btn-sm btn-primary">View</a>
+                                        <a href="/lists/1" class="btn btn-sm btn-primary">View</a>
                                         <button class="btn btn-sm btn-danger">Delete</button>
                                     </td>
                                 </tr>
@@ -88,7 +92,7 @@
                                     <td>Hardware Store</td>
                                     <td><span class="badge bg-info">3</span></td>
                                     <td>
-                                        <a href="list-detail.html" class="btn btn-sm btn-primary">View</a>
+                                        <a href="/lists/1" class="btn btn-sm btn-primary">View</a>
                                         <button class="btn btn-sm btn-danger">Delete</button>
                                     </td>
                                 </tr>

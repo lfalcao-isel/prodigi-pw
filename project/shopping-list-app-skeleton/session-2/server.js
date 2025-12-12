@@ -17,12 +17,14 @@ app.use(express.static('public'));
 
 // Routes
 app.get('/', handlers.handleGetHome);
+app.post('/logout', handlers.handleLogout);
 
 // Protected routes (require authentication)
 app.get('/lists', basicAuthMiddleware, handlers.handleGetLists);
 app.get('/lists/create', basicAuthMiddleware, handlers.handleGetCreateList);
 app.get('/lists/:id', basicAuthMiddleware, handlers.handleGetList);
 app.get('/lists/:id/items/create', basicAuthMiddleware, handlers.handleGetAddItem);
+
 
 //TODO: Add POST /lists/create route
 //app.post( TODO ,basicAuthMiddleware, TODO);
