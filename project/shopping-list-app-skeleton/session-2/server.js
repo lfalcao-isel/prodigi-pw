@@ -19,11 +19,13 @@ app.use(express.static('public'));
 app.get('/', handlers.handleGetHome);
 app.post('/logout', handlers.handleLogout);
 
-// Protected routes (require authentication)
-app.get('/lists', basicAuthMiddleware, handlers.handleGetLists);
-app.get('/lists/create', basicAuthMiddleware, handlers.handleGetCreateList);
-app.get('/lists/:id', basicAuthMiddleware, handlers.handleGetList);
-app.get('/lists/:id/items/create', basicAuthMiddleware, handlers.handleGetAddItem);
+// Protect all /lists routes with Basic Auth registered once
+app.use('/lists', basicAuthMiddleware);
+
+// Lists routes (middleware applied above)
+app.get('/lists', handlers.handleGetLists);
+app.get('/lists/create', handlers.handleGetCreateList);
+app.get('/lists/:id', handlers.handleGetList);
 
 
 //TODO: Add POST /lists/create route

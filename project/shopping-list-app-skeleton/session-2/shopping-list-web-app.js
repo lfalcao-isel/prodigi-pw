@@ -45,16 +45,6 @@ async function handleGetCreateList(req, res) {
     }
 }
 
-// GET /lists/:id/items/create
-async function handleGetAddItem(req, res) {
-    try {
-        const list = await shoppingListServices.getList(req.user.id, req.params.id);
-        res.render('add-item', { list, user: req.user });
-    } catch (err) {
-        res.status(404).render('error', { message: 'List not found', status: 404 });
-    }
-}
-
 // Helper function to get favorite lists
 function getFavorites(lists, maxFavorites) {
     // TODO: Implement this function
@@ -87,8 +77,6 @@ export {
     handleGetLists,
     handleGetList,
     handleGetCreateList,
-    handleGetAddItem,
-    getFavorites,
     handleCreateList,
     handleLogout
 };

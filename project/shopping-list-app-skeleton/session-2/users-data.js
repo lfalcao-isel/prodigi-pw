@@ -25,4 +25,4 @@ async function validateCredentials(username, password) {
     }
 }
 
-export { validateCredentials, removePassword };
+export { validateCredentials };
