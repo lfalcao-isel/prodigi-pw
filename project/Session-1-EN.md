@@ -1,5 +1,7 @@
 # 🎨🛠️ Session 1: HTML Structure, Navigation and Styling (CSS) (2.5 hours)
 
+Language: [🇬🇧 English](Session-1-EN.md) | [🇵🇹 Português](Session-1-PT.md)
+
 ## 🎯 Objectives
 
 By the end of this session, you should have:

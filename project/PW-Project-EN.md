@@ -1,5 +1,7 @@
 # Shopping List Management System - Project
 
+Language: [🇬🇧 English](PW-Project.md) | [🇵🇹 Português](PW-Project-PT.md)
+
 ## Overview
 
 This project involves building a multi-user shopping list management system in 4 practical sessions of 2.5 hours each. Each session has clear, verifiable objectives that build incrementally on the previous session's work. The system uses **Basic Authentication** to support multiple users, where each user has their own shopping lists.
@@ -8,9 +10,9 @@ This project involves building a multi-user shopping list management system in 4
 
 ## Project Sessions
 
-- **[Session 1: HTML Structure, Navigation and CSS Styling with Bootstrap](./Session-1.md)** (2.5 hours)
-- **[Session 2: Backend Setup & Server Implementation](./Session-2.md)** (2.5 hours)
-- **[Session 3: Form Handling & Data Persistence](./Session-3.md)** (2.5 hours)
+- **[Session 1: HTML Structure, Navigation and CSS Styling with Bootstrap](./Session-1-EN.md)** (2.5 hours)
+- **[Session 2: Backend Setup & Server Implementation](./Session-2-EN.md)** (2.5 hours)
+- **[Session 3: Form Handling & Data Persistence](./Session-3-EN.md)** (2.5 hours)
 
 ---
 

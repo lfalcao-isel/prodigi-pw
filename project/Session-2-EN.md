@@ -1,5 +1,7 @@
 # Session 2: Backend Setup & Server Implementation (2.5 hours)
 
+Language: [🇬🇧 English](Session-2-EN.md) | [🇵🇹 Português](Session-2-PT.md)
+
 ## Objectives
 
 By the end of this session, you should have:
