@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Shopping List</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lists">My Lists</a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" action="/logout" style="display:inline-block">
+                            <button class="nav-link btn btn-outline-light btn-sm ms-2" style="border:none">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+               
+
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>Logged in as:</strong> <span class="badge bg-primary">alice</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+
+                <h2 class="mb-4">Grocery Shopping</h2>
+
+                <div class="mb-3">
+                    <a href="/lists" class="btn btn-secondary">Back to Lists</a>
+                    {{!-- TODO: Make this link dynamic using the current list id --}}
+                    <a href="/lists/1/edit" class="btn btn-primary">Edit List</a>
+                    {{!-- TODO: Make this form action dynamic using the current list id --}}
+                    <form method="post" action="/lists/1/delete" style="display:inline-block">
+                        <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this list?')">Delete List</button>
+                    </form>
+                </div>
+
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Items in this list</h5>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover mb-0">
+                            <thead class="table-light">
+                                <!-- TODO -->
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Milk</td>
+                                    <td>2</td>
+                                    <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                    <td>
+                                        {{!-- TODO: Make this toggle action dynamic using list id and item id --}}
+                                        <form method="post" action="/lists/1/items/1/toggle" style="display:inline-block">
+                                            <button class="btn btn-sm btn-secondary">Toggle</button>
+                                        </form>
+                                        {{!-- TODO: Make this delete action dynamic using list id and item id --}}
+                                        <form method="post" action="/lists/1/items/1/delete" style="display:inline-block">
+                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Bread</td>
+                                    <td>3</td>
+                                    <td><span class="badge bg-success text-dark">Bought</span></td>
+                                    <td>
+                                        {{!-- TODO: Make this toggle action dynamic using list id and item id --}}
+                                        <form method="post" action="/lists/1/items/2/toggle" style="display:inline-block">
+                                            <button class="btn btn-sm btn-secondary">Toggle</button>
+                                        </form>
+                                        {{!-- TODO: Make this delete action dynamic using list id and item id --}}
+                                        <form method="post" action="/lists/1/items/2/delete" style="display:inline-block">
+                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <!-- TODO -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-success">
+                        <h5 class="card-title mb-0 text-white">Add New Item</h5>
+                    </div>
+                    <div class="card-body">
+                        {{!-- TODO: Make this form action dynamic using the current list id --}}
+                        <form method="post" action="/lists/1/items/create">
+                            <div class="mb-3">
+                                <label for="itemName" class="form-label">Item Name:</label>
+                                <input type="text" class="form-control" id="itemName" name="name" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Quantity:</label>
+                                <input type="number" class="form-control" id="quantity" name="quantity" min="1" required>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="btn btn-success">Add Item</button>
+                                <button type="reset" class="btn btn-secondary">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Shopping List Management System</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
