@@ -10,6 +10,8 @@ By the end of this session, you should have:
 - ✅ Created data persistence (add/delete operations)
 - ✅ Validated user input
 - ✅ Completed a fully functional multi-user application
+- ✅ **(Optional)** Implemented favorite lists system
+- ✅ **(Optional)** Maintained file-based data persistence (new implementation of data modules)
 
 ## Requirements
 
@@ -163,6 +165,55 @@ Acceptance criteria:
 - The lists page shows cards only for favorites when they exist; otherwise, shows appropriate feedback.
 - The `getFavorites` helper returns only favorite lists for the authenticated user.
 - Don't expose data from other users.
+
+### Optional Task: File-Based Data Persistence
+
+Objective: Implement file-based data persistence by creating a new implementation of data modules that saves and reads information from JSON files.
+
+Scope and rules:
+
+- User data (shopping lists and registration information) must be saved in JSON files.
+- Each user should have their own lists data file (e.g., `data-user1.json`, `data-user2.json`).
+- User registration data should be saved in a separate file (e.g., `users.json`).
+- Read and write operations must be asynchronous using `fs.promises` (or `fs/promises`).
+- In-memory data structure should be maintained for performance, syncing with file after each write operation.
+
+What needs to be changed/created:
+
+- File `users-data.js` (user data layer):
+  - Import `fs/promises` module for asynchronous file operations.
+  - Create `loadUsers()` function that reads the users JSON file and returns the data (use `Promise.resolve()`/`Promise.reject()`).
+  - Create `saveUsers(users)` function that saves all users data to JSON file.
+  - Modify `addUser(username, password)` function to:
+    - Load data from file at the start of the operation
+    - Add new user in memory
+    - Save data to file before returning the result
+  - Handle I/O errors (file not found, permissions, invalid JSON).
+  - Create initial users file if it doesn't exist (with empty array: `[]`).
+- File `shopping-list-data.js` (data layer):
+  - Import `fs/promises` module for asynchronous file operations.
+  - Create `loadUserData(userId)` function that reads the user's JSON file and returns the data (use `Promise.resolve()`/`Promise.reject()`).
+  - Create `saveUserData(userId, data)` function that saves user data to JSON file.
+  - Modify all existing functions (`createList`, `updateList`, `deleteList`, `addItem`, `deleteItem`, `toggleBought`) to:
+    - Load data from file at the start of the operation
+    - Perform the operation in memory
+    - Save data to file before returning the result
+  - Handle I/O errors (file not found, permissions, invalid JSON).
+  - Create initial data file if it doesn't exist (with empty structure: `{lists: []}`).
+- File `shopping-list-services.js` (services):
+  - No significant changes needed, as functions already use `await` and handle errors.
+  - Ensure all errors from data layer (including I/O errors) are handled appropriately.
+
+Acceptance criteria:
+
+- User registration data is saved in JSON file on the file system.
+- Shopping list data is saved in JSON files on the file system.
+- Each user has their own separate lists data file.
+- Create, edit, and delete operations persist data to file.
+- New user registrations are saved to file.
+- Application can recover data after server restart.
+- I/O errors are handled appropriately with clear error messages.
+- Performance is not significantly affected (use of in-memory cache).
 
 ## Verification Checklist
 

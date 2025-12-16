@@ -10,6 +10,8 @@ No final desta sessão, deverá ter:
 - ✅ Criado persistência de dados (operações adicionar/eliminar)
 - ✅ Validado entrada do utilizador
 - ✅ Completado uma aplicação multi-utilizador totalmente funcional
+- ✅ **(Opcional)** Implementado sistema de listas favoritas
+- ✅ **(Opcional)** Mantido persistência de dados em ficheiro (nova implementação dos módulos de data)
 
 ## Requisitos
 
@@ -162,6 +164,55 @@ Critérios de aceitação:
 - A página de listas mostra cartões apenas das favoritas quando existirem; caso contrário, mostra feedback adequado.
 - O helper `getFavorites` devolve apenas listas favoritas do utilizador autenticado.
 - Não expor dados de outros utilizadores.
+
+### Tarefa Opcional: Persistência de Dados em Ficheiro
+
+Objetivo: Implementar persistência de dados em ficheiro, criando uma nova implementação dos módulos de dados que guardam e leem informação de ficheiros JSON.
+
+Âmbito e regras:
+
+- Os dados dos utilizadores (listas de compras e informação de registo) devem ser guardados em ficheiros JSON.
+- Cada utilizador deve ter o seu próprio ficheiro de dados de listas (ex.: `data-user1.json`, `data-user2.json`).
+- Os dados de registo dos utilizadores devem ser guardados num ficheiro separado (ex.: `users.json`).
+- As operações de leitura e escrita devem ser assíncronas usando `fs.promises` (ou `fs/promises`).
+- A estrutura de dados em memória deve ser mantida para performance, sincronizando com ficheiro após cada operação de escrita.
+
+O que necessita ser alterado/criado:
+
+- Ficheiro `users-data.js` (camada de dados de utilizadores):
+  - Importar módulo `fs/promises` para operações de ficheiro assíncronas.
+  - Criar função `loadUsers()` que lê o ficheiro JSON de utilizadores e devolve os dados (usar `Promise.resolve()`/`Promise.reject()`).
+  - Criar função `saveUsers(users)` que guarda os dados de todos os utilizadores em ficheiro JSON.
+  - Modificar função `addUser(username, password)` para:
+    - Carregar dados do ficheiro no início da operação
+    - Adicionar novo utilizador em memória
+    - Guardar dados no ficheiro antes de devolver o resultado
+  - Tratar erros de I/O (ficheiro não encontrado, permissões, JSON inválido).
+  - Criar ficheiro de utilizadores inicial se não existir (com array vazio: `[]`).
+- Ficheiro `shopping-list-data.js` (camada de dados):
+  - Importar módulo `fs/promises` para operações de ficheiro assíncronas.
+  - Criar função `loadUserData(userId)` que lê o ficheiro JSON do utilizador e devolve os dados (usar `Promise.resolve()`/`Promise.reject()`).
+  - Criar função `saveUserData(userId, data)` que guarda os dados do utilizador em ficheiro JSON.
+  - Modificar todas as funções existentes (`createList`, `updateList`, `deleteList`, `addItem`, `deleteItem`, `toggleBought`) para:
+    - Carregar dados do ficheiro no início da operação
+    - Realizar a operação em memória
+    - Guardar dados no ficheiro antes de devolver o resultado
+  - Tratar erros de I/O (ficheiro não encontrado, permissões, JSON inválido).
+  - Criar ficheiro de dados inicial se não existir (com estrutura vazia: `{lists: []}`).
+- Ficheiro `shopping-list-services.js` (serviços):
+  - Não necessita alterações significativas, pois as funções já usam `await` e tratam erros.
+  - Garantir que todos os erros da camada de dados (incluindo erros de I/O) são tratados adequadamente.
+
+Critérios de aceitação:
+
+- Os dados de registo dos utilizadores são guardados em ficheiro JSON no sistema de ficheiros.
+- Os dados das listas de compras são guardados em ficheiros JSON no sistema de ficheiros.
+- Cada utilizador tem o seu ficheiro de dados de listas separado.
+- As operações de criação, edição e eliminação persistem os dados em ficheiro.
+- Novos registos de utilizadores são guardados em ficheiro.
+- A aplicação consegue recuperar dados após reiniciar o servidor.
+- Erros de I/O são tratados adequadamente com mensagens de erro claras.
+- A performance não é significativamente afetada (uso de cache em memória).
 
 ## Checklist de Verificação
 
