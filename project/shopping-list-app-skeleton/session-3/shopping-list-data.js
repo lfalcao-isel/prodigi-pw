@@ -1,7 +1,7 @@
 // shopping-list-data.js - Data access module with async/Promise pattern
 
 // In-memory data store - organized by userId
-const userLists = {
+let userLists = {
   1: [
     {
       id: 1,
@@ -65,9 +65,15 @@ const userLists = {
 };
 
 
+export function setInitialData(uLists) {
+  userLists = uLists;
+}
+
+
 // Get all lists for a user
 async function getAllLists(userId) {
   const lists = userLists[userId] || [];
+  println(lists)
   return Promise.resolve(lists);
 }
 
@@ -166,5 +172,6 @@ async function updateList(userId, listId, patch) {
   
   return Promise.resolve(list);
 }
+
 
 export { getAllLists, getListById, createList, deleteList, addItem, toggleBought, deleteItem, updateList }

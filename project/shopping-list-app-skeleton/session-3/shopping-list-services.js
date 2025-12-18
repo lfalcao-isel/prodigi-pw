@@ -1,5 +1,5 @@
 // shopping-list-services.js - Business logic and validation layer (match session 2)
-import * as data from './shopping-list-data.js'
+import * as data from './shopping-list-data-savefs.js'
 
 async function getAllLists(userId) {
   return await data.getAllLists(userId)
