@@ -3,12 +3,12 @@
 ## **Visão Geral**
 
 Construir uma pequena aplicação web em **Express** usando **Handlebars (hbs)** como
-motor de visualização.\
+motor de visualização.
 A aplicação gere uma coleção de **produtos em memória** e suporta:
 
-1.  **Listar todos os produtos**
-2.  **Ver detalhes de um único produto**
-3.  **Criar um novo produto**
+1. **Listar todos os produtos**
+2. **Ver detalhes de um único produto**
+3. **Criar um novo produto**
 
 <!--- **Nota**: Apenas precisa de seguir os próximos passos e criar os templates Handlebars
 
@@ -30,9 +30,9 @@ npm install express hbs
 
 Cada produto contém:
 
--   `id`: número
--   `name`: string
--   `price`: número
+- `id`: número
+- `name`: string
+- `price`: número
 
 Exemplo:
 
@@ -49,18 +49,18 @@ Exemplo:
 A aplicação deve suportar três rotas:
 
 1. **Listar todos os produtos**  
-   - **Rota:** `GET /products`  
-   - **Descrição:** Renderiza uma página HTML mostrando todos os produtos usando um template Handlebars.
+- **Rota:** `GET /products`  
+- **Descrição:** Renderiza uma página HTML mostrando todos os produtos usando um template Handlebars.
 
 2. **Detalhes do produto**  
-   - **Rota:** `GET /products/:id`  
-   - **Descrição:** Apresenta os detalhes de um único produto numa vista dedicada.
+- **Rota:** `GET /products/:id`  
+- **Descrição:** Apresenta os detalhes de um único produto numa vista dedicada.
 
 3. **Criar um novo produto**  
-   - **Rotas:**  
-     - `GET /newproductview` — Renderiza uma página HTML para criar um novo produto 
-     - `POST /products` — processa o envio do formulário e insere o novo produto em memória  
-   - **Descrição:** Novos produtos são armazenados apenas em memória.
+- **Rotas:**  
+  - `GET /newproductview` — Renderiza uma página HTML para criar um novo produto 
+  - `POST /products` — processa o envio do formulário e insere o novo produto em memória  
+- **Descrição:** Novos produtos são armazenados apenas em memória.
 
 
 ------------------------------------------------------------------------

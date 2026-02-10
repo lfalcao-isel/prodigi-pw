@@ -4,52 +4,50 @@ Criar um pequeno programa que demonstra como reutilizar funções em módulos.
 
 ### Criar um módulo (`functions.js`)
 
-   * Incluir as duas funções dos Exercícios 1.6 e 1.7 da semana anterior.
-   * Exportá-las para que possam ser reutilizadas.
+* Incluir as duas funções dos Exercícios 1.6 e 1.7 da semana anterior.
+* Exportá-las para que possam ser reutilizadas.
 
 ### Criar um módulo principal (`main.js`)
 
-   * Importar o módulo de funções.
-   * Definir uma função `main` que chama as funções importadas e regista os resultados.
-   * Chamar `main()` no final para executar o programa.
-
+* Importar o módulo de funções.
+* Definir uma função `main` que chama as funções importadas e regista os resultados.
+* Chamar `main()` no final para executar o programa.
 
 # 2. Programação Assíncrona – Promises
 
 ## 2.1 Sistema de Ficheiros com Promises (Node.js)
 
 Usando a **API de Promises** do Node.js para acesso a ficheiros, completar as tarefas
-descritas abaixo.\
-Deve implementar **duas funções separadas**, cada uma com uma responsabilidade clara e
-bem definida.
+descritas abaixo.
+Deve implementar **duas funções separadas**, cada uma com uma responsabilidade clara e bem definida.
 
 ### Função 1 - `readAndFilter()`
 
 Implementar uma função chamada **`readAndFilter()`** que realiza o
 seguinte:
 
-1.  Lê o ficheiro [liga.json](liga.json) usando `fs.promises.readFile`.
-2.  Analisa o conteúdo do ficheiro de JSON para um objeto ou array
-    JavaScript, usando a função `JSON.parse`.
-3.  Filtra as equipas e retorna apenas aquelas cujo número de golos
-    marcados (**`goals`**) é **superior a 10**.
-4.  Retorna o array filtrado.
+1. Lê o ficheiro [liga.json](liga.json) usando `fs.promises.readFile`.
+2. Analisa o conteúdo do ficheiro de JSON para um objeto ou array
+   JavaScript, usando a função `JSON.parse`.
+3. Filtra as equipas e retorna apenas aquelas cujo número de golos
+   marcados (**`goals`**) é **superior a 10**.
+4. Retorna o array filtrado.
 
 ### Função 2  - `saveResult(filteredTeams)`
 
 Implementar uma função chamada **`saveResult()`** que:
 
-1.  Recebe o array filtrado retornado por `readAndFilter()`.
-2.  Converte este array em JSON formatado usando `JSON.stringify(filteredTeams)`.
-3.  Escreve o resultado num novo ficheiro chamado **`liga10goals.json`** usando
+1. Recebe o array filtrado retornado por `readAndFilter()`.
+2. Converte este array em JSON formatado usando `JSON.stringify(filteredTeams)`.
+3. Escreve o resultado num novo ficheiro chamado **`liga10goals.json`** usando
     `fs.promises.writeFile`.
 
 ### Objetivo Final
 
 Criar uma pequena função **`main()`** (ou código de controlo similar) que:
 
-1.  Chama `readAndFilter()` para obter as equipas filtradas.
-2.  Passa o resultado para `saveResult()`.
+1. Chama `readAndFilter()` para obter as equipas filtradas.
+2. Passa o resultado para `saveResult()`.
 
 Quando executado, o programa deve produzir o ficheiro:
 
@@ -93,32 +91,34 @@ bem definida.
 Implementar uma função chamada **`fetchMovies()`** que realiza o
 seguinte:
 
-1.  Faz um pedido HTTP GET para:
+    Faz um pedido HTTP GET para:
 
 ```{=html}
 https://api.sampleapis.com/movies/animation
 ```
-    
-2.  Usa a **Fetch API** para obter os dados.
-3.  Analisa a resposta como JSON usando `response.json()`.
-4.  Extrai apenas os **títulos** dos filmes dos objetos retornados.
-5.  Retorna um array de títulos de filmes.
+
+1. Usa a **Fetch API** para obter os dados.
+2. Analisa a resposta como JSON usando `response.json()`.
+3. Extrai apenas os **títulos** dos filmes dos objetos retornados.
+4. Retorna um array de títulos de filmes.
 
 ### Função 2 - `saveTitles(titles)`
 
 Implementar uma função chamada **`saveTitles()`** que:
 
-1.  Recebe o array de títulos de filmes retornado por `fetchMovies()`.
-2.  Converte o array em JSON formatado usando:
+1. Recebe o array de títulos de filmes retornado por `fetchMovies()`.
+2. Converte o array em JSON formatado usando:
 
-```{=html}
+```javascript
 JSON.stringify(titles, null, 2)
 ```
    
-3.  Guarda este JSON num ficheiro chamado:
+    Guarda este JSON num ficheiro chamado:
 
-```{=html}
+```javascript
+
 animationTitles.json
+
 ```
 
 usando `fs.promises.writeFile`.
@@ -127,8 +127,8 @@ usando `fs.promises.writeFile`.
 
 Escrever uma pequena função `main()` (ou similar) que:
 
-1.  Chama `fetchMovies()` para obter os títulos.
-2.  Passa o resultado para `saveTitles()`.
+1. Chama `fetchMovies()` para obter os títulos.
+2. Passa o resultado para `saveTitles()`.
 
 Quando executado, o programa deve criar o ficheiro:
 
@@ -149,8 +149,7 @@ contendo todos os títulos de filmes obtidos da API.
 
 Os títulos reais dependerão da resposta da API.
 
-
-# 3. Web API com Express
+#3. Web API com Express
 
 ## API de Listas de Compras
 
@@ -218,4 +217,3 @@ Existe uma demonstração simples do express [aqui](https://github.com/lfalcao-i
 Os alunos **apenas precisam de completar as partes marcadas com comentários numerados** no ficheiro.
 
 4. Testar os endpoints usando o browser
-
